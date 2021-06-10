@@ -8,4 +8,9 @@
 	<insert id="join" parameterType="hashmap">
 		INSERT INTO imember(id,pw,name,phone) VALUES(#{id},#{pw},#{name},#{phone})
 	</insert>
+	
+	<select id="login" resultType="String" parameterType="String">
+		SELECT pw FROM imember WHERE id=#{id}
+	
+	</select>
 </mapper>

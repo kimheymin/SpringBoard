@@ -26,4 +26,11 @@ public class MemberService {
 		return dao.join(params);
 	}
 
+	public boolean login(String id, String pw) {
+		String encrypt_pass = dao.login(id);
+		logger.info(pw + "==" + encrypt_pass);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		return encoder.matches(pw, encrypt_pass);
+	}
+
 }
