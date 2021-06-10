@@ -5,4 +5,7 @@
 >
 
 <mapper namespace="com.spring.main.dao.MemberDAO">
+	<insert id="join" parameterType="hashmap">
+		INSERT INTO imember(id,pw,name,phone) VALUES(#{id},#{pw},#{name},#{phone})
+	</insert>
 </mapper>
