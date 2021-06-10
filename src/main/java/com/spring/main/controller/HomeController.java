@@ -71,7 +71,7 @@ public class HomeController {
 		msg = "로그인 실패";
 		
 		if(service.login(id,pw)) {
-			msg = id+"반가워요";
+			msg = id+" 님 반가워요";
 			page = "redirect:/";
 			session.setAttribute("loginId", id);
 			logger.info("로그인 아이디: "+session.getAttribute("loginId"));

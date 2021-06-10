@@ -3,15 +3,13 @@
 <html>
    <head>
       <meta charset="UTF-8">
-      <title>Insert title here</title>
+      <title>메인 페이지</title>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <style>
       </style>
    </head>
    <body>
-     메인
-     <button onclick="location.href='joinForm'">회원가입</button> 
-     <button onclick="location.href='loginForm'">로그인</button> 
+      <jsp:include page="top.jsp"/>
    </body>
    <script>
    </script>
