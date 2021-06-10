@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+		<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${Globals.driverClassName}"/>
+		<property name="url" value="${Globals.url}"/>
+		<property name="username" value="${Globals.username}"/>
+		<property name="password" value="${Globals.password}"/>
+	</bean>
+	
+	<!-- DataSource를 이용해서 DB 접속 설정 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mapperLocations" value="classpath:/mapper/*.xml"/>
+		<property name="configLocation" value="classpath:/aliase/aliase.xml"/>
+	</bean>
+	
+	<!-- MyBastis를 자동으로 감지하여 사용할 수 있또록 설정 -->
+	<mybatis-spring:scan base-package="com.spring.main.dao"/>
+	
+	<bean id="propertyConfiguer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:/props/*.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- @Transaction 어노테이션 사용 설정 -->
+	<tx:annotation-driven proxy-target-class="false"/>
+	
+	<!-- properties 를 java 소스 안에서 활용 할 수 있도록 하는 설정 -->
+	<util:properties id="config" location="classpath:/props/globals.properties"/>
+	
+	<!-- 파일 첨부 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="maxUploadSize" value="10000000"/><!-- 업로드 용량 -->
+		<property name="maxInMemorySize" value="10000000"></property><!-- 버퍼역할을 할 용량 -->
+	</bean>	
+	
+</beans>

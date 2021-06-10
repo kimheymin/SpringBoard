@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- SQL LOGGER(볼 내용과 보지 않을 내용을 설정) -->
+	<!-- 실행쿼리 + 걸린시간 additivity=false를 안하면같은 로그가 2번 찍힘 -->
+	<logger name="jdbc.sqltiming" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<!-- 실행쿼리 + 결과값(이지만 안쓸거라서 value를 off로) -->
+	<logger name="jdbc.resultset" additivity="false">
+		<level value="OFF"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<!-- 쿼리실행 전/후의 커넥션 상태 -->
+	<logger name="jdbc.connection" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<!-- 실행쿼리 -->
+	<logger name="jdbc.sqlonly" additivity="false">
+		<level value="OFF"/>
+		<appender-ref ref="console"/>
+	</logger>
+		
+	<!-- Application Loggers -->
+	<logger name="com.spring.main">
+		<level value="info" />
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="console" />
+	</root>
+	
+</log4j:configuration>
