@@ -42,6 +42,10 @@ li{
   margin: 20px;
 }
 
+.loginBox ul li{
+	font-size: 14px;
+}
+
 @media screen and (max-width:768px){
   #nav_bar{
       flex-direction: column;

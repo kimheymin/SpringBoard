@@ -81,5 +81,12 @@ public class HomeController {
 		return page;
 	}
 	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		logger.info("로그아웃 요청");
+		session.removeAttribute("loginId");
+		return "redirect:/";
+	}
+	
 
 }

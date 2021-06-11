@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String loginId = (String) request.getSession().getAttribute("loginId");
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -24,12 +27,22 @@
 				<li><a href="#">마이페이지</a></li>
 			</ul>
 		</div>
-		<div class="sns">
-			<ul>
-				<li><a href="joinForm">회원가입</a></li>
-				<li><a href="loginForm">로그인</a></li>
-			</ul>
-		</div>
+		 <c:if test="${sessionScope.loginId eq null}">
+			<div class="sns">
+				<ul>
+					<li><a href="joinForm">회원가입</a></li>
+					<li><a href="loginForm">로그인</a></li>
+				</ul>
+			</div>
+		</c:if>
+		<c:if test="${sessionScope.loginId ne null}">
+			<div class="loginBox">
+				<ul>
+					<li>${sessionScope.loginId} 님</li>
+					<li><a href="logout">[로그아웃]</a></li>
+				</ul>
+			</div>
+		</c:if>
 	</nav>
 
 </body>
