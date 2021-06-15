@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#container {
+	margin: 50px auto;
+	width: 1000px;
+	height: 500px;
+}
+
+#n_table {
+	width: 1000px;
+	background-color: whitesmoke;
+	padding: 10px 0;
+}
+
+#n_table th td {
+	
+}
+
+#n_table th {
+	width: 150px;
+}
+
+.tr1 {
+	height: 50px;
+}
+
+.tr2 {
+	height: 300px;
+}
+
+#subject {
+	width: 800px;
+	padding: 10px 24px;
+	font-size: 18px;
+}
+
+#content {
+	width: 800px;
+	height: 300px;
+	font-size: 20px;
+}
+
+#btn {
+	text-align: center;
+}
+
+#nbtn {
+	margin: 5px 24px;
+	padding: 8px;
+}
