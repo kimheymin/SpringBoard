@@ -13,4 +13,8 @@
 	<select id="boardList" resultType="BoardDTO">
 		SELECT * FROM board
 	</select>
+	
+	<delete id="boardDelete">
+		DELETE FROM board WHERE boardIdx=#{param1}
+	</delete>
 </mapper>

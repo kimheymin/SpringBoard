@@ -40,6 +40,12 @@ public class BoardController {
 		return service.boardWrite(params);
 	}
 	
+	@RequestMapping(value = "/boardDelete", method = RequestMethod.GET)
+	public int boardDelete(@RequestParam int boardIdx) {
+		logger.info("삭제할 게시글 번호: "+boardIdx);
+		return service.boardDelete(boardIdx);
+	}
+	
 	
 
 }
