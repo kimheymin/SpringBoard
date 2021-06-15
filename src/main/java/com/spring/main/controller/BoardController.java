@@ -28,10 +28,18 @@ public class BoardController {
 		return "writeForm";
 	}
 	
+	@RequestMapping(value = "/boardList", method = RequestMethod.GET)
+	public ModelAndView boardList() {
+		logger.info("게시판 목록 요청");
+		return service.boardList();
+	}
+	
 	@RequestMapping(value = "/boardWrite", method = RequestMethod.POST)
 	public ModelAndView boardWrite(@RequestParam HashMap<String, String> params) {
 		logger.info("params: "+params);
 		return service.boardWrite(params);
 	}
+	
+	
 
 }

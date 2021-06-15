@@ -9,4 +9,8 @@
 	INSERT INTO board (boardIdx,id,subject,content)
 	VALUES (boardIdx_seq.NEXTVAL,#{id},#{subject},#{content})
 	</insert>
+	
+	<select id="boardList" resultType="BoardDTO">
+		SELECT * FROM board
+	</select>
 </mapper>

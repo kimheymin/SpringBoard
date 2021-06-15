@@ -21,7 +21,7 @@
 		<div class="menu">
 			<ul>
 				<li><a href="#">공지</a></li>
-				<li><a href="#">자유게시판</a></li>
+				<li><a href="boardList">자유게시판</a></li>
 				<li><a href="#">중고거래</a></li>
 				<li><a href="#">QNA</a></li>
 				<li><a href="#">마이페이지</a></li>

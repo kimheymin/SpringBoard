@@ -1,5 +1,6 @@
 package com.spring.main.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.main.dao.BoardDAO;
+import com.spring.main.dto.BoardDTO;
 
 @Service
 public class BoardService {
@@ -17,6 +19,15 @@ public class BoardService {
 	@Autowired BoardDAO dao;
 	String page="";
 	String msg="";
+	
+	public ModelAndView boardList() {
+		ArrayList<BoardDTO> list = dao.boardList();
+		logger.info("list size: "+list.size());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("boardList", list);
+		mav.setViewName("boardList");
+		return mav;
+	}
 	
 	public ModelAndView boardWrite(HashMap<String, String> params) {
 		logger.info("글쓰기 요청");
@@ -32,5 +43,7 @@ public class BoardService {
 		mav.setViewName(page);
 		return mav;
 	}
+
+
 
 }

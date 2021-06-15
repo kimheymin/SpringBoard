@@ -31,9 +31,9 @@
 			</table>
 		<div id="btn">
 			<input type="submit" id="nbtn" value="작성완료">
-			<button id="nbtn" onclick="location.href='boardList'">닫기</button>
 		</div>
 		</form>
+			<button id="nbtn" onclick="location.href='boardList'">닫기</button>
 	</div>
    </body>
    <script>
