@@ -44,6 +44,10 @@ public class BoardService {
 		return mav;
 	}
 
+	public int boardDelete(int boardIdx) {
+		return dao.boardDelete(boardIdx);
+	}
+
 
 
 }

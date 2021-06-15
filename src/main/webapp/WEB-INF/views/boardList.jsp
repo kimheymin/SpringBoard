@@ -27,7 +27,7 @@
 			<td><a href="boardDetail?idx=${dto.boardIdx}">${dto.subject}</a></td>
 			<td>${dto.id}</td>
 			<td>${dto.bHit}</td>
-			<td class="delete"><a href="boardDelete?idx=${dto.boardIdx}">삭제</a></td>
+			<td class="delete"><a href="boardDelete?boardIdx=${dto.boardIdx}">삭제</a></td>
 		</tr>
 		</c:forEach>
 	</table>
