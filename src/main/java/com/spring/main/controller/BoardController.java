@@ -41,7 +41,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/boardDelete", method = RequestMethod.GET)
-	public int boardDelete(@RequestParam int boardIdx) {
+	public ModelAndView boardDelete(@RequestParam String boardIdx) {
 		logger.info("삭제할 게시글 번호: "+boardIdx);
 		return service.boardDelete(boardIdx);
 	}

@@ -44,8 +44,12 @@ public class BoardService {
 		return mav;
 	}
 
-	public int boardDelete(int boardIdx) {
-		return dao.boardDelete(boardIdx);
+	public ModelAndView boardDelete(String boardIdx) {
+		ModelAndView mav = new ModelAndView();
+		int success = dao.boardDelete(boardIdx);
+		logger.info("success여부:"+success);
+		mav.setViewName("redirect:/boardList");
+		return mav;
 	}
 
 
