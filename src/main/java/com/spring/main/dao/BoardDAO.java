@@ -13,4 +13,6 @@ public interface BoardDAO {
 
 	int boardDelete(String boardIdx);
 
+	BoardDTO boardDetail(String boardIdx);
+
 }

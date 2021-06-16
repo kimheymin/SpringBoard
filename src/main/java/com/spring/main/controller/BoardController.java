@@ -46,6 +46,12 @@ public class BoardController {
 		return service.boardDelete(boardIdx);
 	}
 	
+	@RequestMapping(value = "/boardDetail", method = RequestMethod.GET)
+	public ModelAndView boardDetail(@RequestParam String boardIdx) {
+		logger.info("상세보기할 게시글 번호: "+boardIdx);
+		return service.boardDetail(boardIdx);
+	}
+	
 	
 
 }

@@ -52,6 +52,18 @@ public class BoardService {
 		return mav;
 	}
 
+	public ModelAndView boardDetail(String boardIdx) {
+		ModelAndView mav = new ModelAndView();
+		BoardDTO dto = dao.boardDetail(boardIdx);
+		
+		if(dto!=null) {
+			page="boardDetail";
+			mav.addObject("info", dto);
+		}
+		mav.setViewName(page);
+		return mav;
+	}
+
 
 
 }

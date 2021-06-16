@@ -17,4 +17,8 @@
 	<delete id="boardDelete">
 		DELETE FROM board WHERE boardIdx=#{param1}
 	</delete>
+	
+	<select id="boardDetail" resultType="BoardDTO">
+		SELECT * FROM board WHERE boardIdx=#{param1}
+	</select>
 </mapper>

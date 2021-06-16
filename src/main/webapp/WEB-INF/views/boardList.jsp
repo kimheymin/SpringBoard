@@ -24,7 +24,7 @@
 		<c:forEach items="${boardList}" var="dto">
 		<tr>
 			<td>${dto.boardIdx}</td>
-			<td><a href="boardDetail?idx=${dto.boardIdx}">${dto.subject}</a></td>
+			<td><a href="boardDetail?boardIdx=${dto.boardIdx}">${dto.subject}</a></td>
 			<td>${dto.id}</td>
 			<td>${dto.bHit}</td>
 			<td class="delete"><a href="boardDelete?boardIdx=${dto.boardIdx}">삭제</a></td>
