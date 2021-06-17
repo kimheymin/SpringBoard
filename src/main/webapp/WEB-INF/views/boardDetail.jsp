@@ -15,7 +15,6 @@
    <body>
       <jsp:include page="top.jsp"/>
       	<div id="container">
-		<form action="boardUpdate" method="POST">
 			<table id="n_table">
 				<tr class="tr1">
 					<th>글번호</th>
@@ -43,10 +42,9 @@
 				</tr>								
 			</table>
 		<div id="btn">
-			<input type="submit" id="nbtn" value="수정하기">
-		</div>
-		</form>
+			<button id="nbtn" onclick="location.href='updateForm?boardIdx=${info.boardIdx}'">수정</button>
 			<button id="nbtn" onclick="location.href='boardList'">닫기</button>
+			</div>
 	</div>
    </body>
    <script>
