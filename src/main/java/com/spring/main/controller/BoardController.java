@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.main.dto.BoardDTO;
 import com.spring.main.service.BoardService;
 
 @Controller
@@ -48,23 +49,26 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/boardDetail", method = RequestMethod.GET)
-	public ModelAndView boardDetail(@RequestParam String boardIdx) {
+	public String boardDetail(Model model,@RequestParam String boardIdx) {
 		logger.info("상세보기할 게시글 번호: "+boardIdx);
-		return service.boardDetail(boardIdx);
+		String page = "boardDetail";
+		model.addAttribute("info", service.boardDetail(boardIdx));		
+		return page;
 	}
 	
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
 	public String updateForm(Model model,@RequestParam String boardIdx) {
+		logger.info("수정할 게시글 번호: "+boardIdx);
 		String page = "updateForm";
 		model.addAttribute("info", service.boardDetail(boardIdx));					
 		return page;
 	}
 	
-//	@RequestMapping(value = "/boardUpdate", method = RequestMethod.POST)
-//	public ModelAndView boardUpdate(@RequestParam HashMap<String, String> params) {
-//		logger.info("params: "+params);
-//		return service.boardUpdate(params);
-//	}
+	@RequestMapping(value = "/boardUpdate", method = RequestMethod.POST)
+	public ModelAndView boardUpdate(@RequestParam HashMap<String, String> params) {
+		logger.info("params: "+params);
+		return service.boardUpdate(params);
+	}
 	
 	
 	

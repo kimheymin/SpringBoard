@@ -26,8 +26,7 @@
 		UPDATE board SET bHit = bHit+1 WHERE boardIdx=#{param1}
 	</update>
 	
-<!-- 	<update id="boardUpdate" parameterType="hashmap">
+ 	<update id="boardUpdate" parameterType="hashmap">
 		UPDATE board SET subject=#{subject}, content=#{content} WHERE boardIdx=#{boardIdx}
-		
-	</update> -->
+	</update> 
 </mapper>

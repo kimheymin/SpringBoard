@@ -54,36 +54,28 @@ public class BoardService {
 	}
 
 	@Transactional
-	public ModelAndView boardDetail(String boardIdx) {
-		ModelAndView mav = new ModelAndView();
-		BoardDTO dto = dao.boardDetail(boardIdx);
-		
+	public BoardDTO boardDetail(String boardIdx) {	
 		dao.upHit(boardIdx);
-		if(dto!=null) {
-			page="boardDetail";
-			mav.addObject("info", dto);
+		return dao.boardDetail(boardIdx);
+	}
+
+	public ModelAndView boardUpdate(HashMap<String, String> params) {
+		ModelAndView mav = new ModelAndView();
+		logger.info("params:"+params);
+		int success = dao.boardUpdate(params);
+		
+		msg = "글 수정 실패";
+		page = "bbsDetail";
+		
+		if(success>0) {
+			msg = "글 수정 성공";
+			page = "redirect:/boardList";
 		}
+		logger.info("수정 성공여부"+success);
+		mav.addObject("msg", msg);
 		mav.setViewName(page);
 		return mav;
 	}
-
-//	public ModelAndView boardUpdate(HashMap<String, String> params) {
-//		ModelAndView mav = new ModelAndView();
-//		logger.info("params:"+params);
-//		int success = dao.boardUpdate(params);
-//		
-//		msg = "글 수정 실패";
-//		page = "bbsDetail";
-//		
-//		if(success>0) {
-//			msg = "글 수정 성공";
-//			page = "redirect:/boardList";
-//		}
-//		logger.info("수정 성공여부"+success);
-//		mav.addObject("msg", msg);
-//		mav.setViewName(page);
-//		return mav;
-//	}
 
 
 

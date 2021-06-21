@@ -17,6 +17,6 @@ public interface BoardDAO {
 
 	void upHit(String boardIdx);
 
-	//int boardUpdate(HashMap<String, String> params);
+	int boardUpdate(HashMap<String, String> params);
 
 }
